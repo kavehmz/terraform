@@ -18,10 +18,10 @@ resource "aws_s3_bucket" "remote_iam_state_bucket" {
   region = "us-east-1"
 
   versioning {
-    enabled = true
+    enabled = false
   }
 }
 
-output "rmeote_state_bucket" {
+output "remote_state_bucket" {
   value = "${aws_s3_bucket.remote_iam_state_bucket.bucket}"
 }
