@@ -22,6 +22,6 @@ resource "aws_s3_bucket" "remote_iam_state_bucket" {
   }
 }
 
-output "remote_state_bucket" {
+output "remote_iam_state_bucket" {
   value = "${aws_s3_bucket.remote_iam_state_bucket.bucket}"
 }
