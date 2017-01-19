@@ -1,11 +1,8 @@
+# Terraform
+[![Build Status](https://travis-ci.org/kavehmz/terraform_dev.svg?branch=master)](https://travis-ci.org/kavehmz/terraform_dev)
+
 # Init
-
-Create an amazon account. Create a user named "init" with IAMFullAccess and AmazonS3FullAccess permissions.
-
-This user is just used for initializing the setup.
 
 Create an access key for user "init" and setup your [terraform](https://www.terraform.io/intro/getting-started/install.html).
 
-First step is applying "iam". "iam" is an account wdie setup. [iam/README.md](https://github.com/kavehmz/terraform/blob/master/iam/README.md)
-
-Each section will have its own state as a best practice, so does "iam".
+Each directory has its own README to give further information
