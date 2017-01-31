@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "policy_assume_delete" {
+data "aws_iam_policy_document" "policy_assume_super" {
   statement {
     actions = ["sts:AssumeRole"]
 
@@ -9,11 +9,8 @@ data "aws_iam_policy_document" "policy_assume_delete" {
     }
 
     principals {
-      type = "AWS"
-
-      identifiers = [
-        "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root",
-      ]
+      type        = "AWS"
+      identifiers = ["${formatlist("arn:aws:iam::%s:user/%s", var.current_account_id,var.users_super)}"]
     }
   }
 }

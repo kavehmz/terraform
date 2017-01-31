@@ -5,4 +5,12 @@
 
 Create an access key for user "init" and setup your [terraform](https://www.terraform.io/intro/getting-started/install.html).
 
-Each directory has its own README to give further information
+# Strcuture
+
+```text
+|-- dev # starting point for dev environemnt. It will use common files in /lib.
+|-- lib # common code shared between environemnts will come here. There are called as terraform modules.
+|   `-- aws
+|-- pager_duty # 3rd party setup
+`-- production starting point for production environemnt. It will use common files in /lib.
+```

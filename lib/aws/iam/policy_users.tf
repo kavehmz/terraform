@@ -51,7 +51,7 @@ resource "aws_iam_policy" "users" {
                 "iam:UpdateSSHPublicKey",
                 "iam:UploadSSHPublicKey"
             ],
-            "Resource": "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/$${aws:username}"
+            "Resource": "arn:aws:iam::${var.current_account_id}:user/$${aws:username}"
         },
         {
             "Sid": "AllowIndividualUserToListTheirOwnMFA",
@@ -61,8 +61,8 @@ resource "aws_iam_policy" "users" {
                 "iam:ListMFADevices"
             ],
             "Resource":[
-                "arn:aws:iam::${data.aws_caller_identity.current.account_id}:mfa/*",
-                "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/$${aws:username}"
+                "arn:aws:iam::${var.current_account_id}:mfa/*",
+                "arn:aws:iam::${var.current_account_id}:user/$${aws:username}"
             ]
         },
         {
@@ -78,8 +78,8 @@ resource "aws_iam_policy" "users" {
                 "iam:ResyncMFADevice"
             ],
             "Resource":[
-                "arn:aws:iam::${data.aws_caller_identity.current.account_id}:mfa/$${aws:username}",
-                "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/$${aws:username}"
+                "arn:aws:iam::${var.current_account_id}:mfa/$${aws:username}",
+                "arn:aws:iam::${var.current_account_id}:user/$${aws:username}"
             ]
         }
     ]

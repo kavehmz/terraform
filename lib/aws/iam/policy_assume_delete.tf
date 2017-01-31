@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "policy_assume_all" {
+data "aws_iam_policy_document" "policy_assume_delete" {
   statement {
     actions = ["sts:AssumeRole"]
 
@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "policy_assume_all" {
 
     principals {
       type        = "AWS"
-      identifiers = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/kaveh"]
+      identifiers = ["${formatlist("arn:aws:iam::%s:user/%s", var.current_account_id,var.users_delete)}"]
     }
   }
 }

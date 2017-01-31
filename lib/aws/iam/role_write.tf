@@ -1,6 +1,6 @@
 resource "aws_iam_role" "write" {
   name               = "write"
-  assume_role_policy = "${data.aws_iam_policy_document.policy_assume_all.json}"
+  assume_role_policy = "${data.aws_iam_policy_document.policy_assume_write.json}"
 }
 
 resource "aws_iam_role_policy_attachment" "write-ec2-attach" {
